@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#5A3825"/>
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0.18"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="1280" height="720" filter="url(#noise)" opacity="0.45"/>
+  <radialGradient id="light" cx="50%" cy="50%" r="72%">
+    <stop offset="0%" stop-color="#8A6145" stop-opacity="0.55"/>
+    <stop offset="72%" stop-color="#5A3825" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1280" height="720" fill="url(#light)"/>
+</svg>

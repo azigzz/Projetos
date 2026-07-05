@@ -1,0 +1,14 @@
+node_modules/
+dist/
+
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+livro-temp/
+livro.mp4
+livro_120fps.mp4
+
+.env
+.env.*
+!.env.example
