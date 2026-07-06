@@ -2,7 +2,9 @@ import { projects } from "../data/projects";
 import { ProjectCard } from "./ProjectCard";
 
 export function ProjectsSection() {
-  const featuredProject = projects.find((project) => project.featured);
+  const realProjects = projects.filter((project) => !project.placeholder);
+  const featuredProject = realProjects.find((project) => project.featured);
+  const otherProjects = realProjects.filter((project) => project !== featuredProject);
 
   return (
     <section id="projetos" className="paper-texture bg-page px-5 py-16 sm:px-8 sm:py-24">
@@ -16,7 +18,12 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {featuredProject ? <ProjectCard project={featuredProject} /> : null}
+        <div className="space-y-6">
+          {featuredProject ? <ProjectCard project={featuredProject} /> : null}
+          {otherProjects.map((project) => (
+            <ProjectCard project={project} key={project.name} />
+          ))}
+        </div>
       </div>
     </section>
   );
