@@ -8,6 +8,8 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const visibleFeatures = project.features.slice(0, 4);
+
   if (project.placeholder) {
     return (
       <motion.article
@@ -66,12 +68,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
 
-        <div className="rounded-lg border border-ink bg-white/55 p-4">
-          <h4 className="text-sm font-black uppercase">Recursos</h4>
-          <ul className="mt-4 grid gap-3 text-sm text-ink/80 sm:grid-cols-2 lg:grid-cols-1">
-            {project.features.map((feature) => (
-              <li className="flex items-center gap-3" key={feature}>
-                <span className="h-2 w-2 rounded-full bg-orangeAccent" aria-hidden="true" />
+        <div className="rounded-lg border border-ink bg-white/45 p-4">
+          <h4 className="text-sm font-black uppercase">Destaques</h4>
+          <ul className="mt-4 grid gap-2 text-sm text-ink/80 sm:grid-cols-2">
+            {visibleFeatures.map((feature) => (
+              <li className="flex items-center gap-2" key={feature}>
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orangeAccent" aria-hidden="true" />
                 {feature}
               </li>
             ))}
